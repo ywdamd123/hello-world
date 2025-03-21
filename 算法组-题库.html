@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .change{
+        display: none;
+      }
+      table,th, td{
+        width: 350px;
+        border:  1px solid black;
+        border-collapse: collapse;
+      }
+      .question{
+        margin:20px 0 ;
+      }
+      .append{
+        margin-bottom: 20px;
+      }
+      .option{
+        display: none;
+      }
+      .active{
+        display: block;
+      }
+    </style>
+</head>
+<body>
+    
+
+    <button class="start">开始</button>
+
+
+
+    <div class="change">
+        <div class="big">
+            <div class="num">
+                0
+            </div>
+    
+            <div class="question">
+                起风了
+            </div>
+    
+            <div class="option active" >
+                <input type="radio" value="1111" name="a"><span>A:1111</span> <br>
+                <input type="radio" value="2222" name="a"><span>B:2222</span> <br>
+                <input type="radio" value="3333" name="a"><span>C:3333</span> <br>
+                <input type="radio" value="4444" name="a"><span>D:4444</span> 
+            </div>
+        </div>
+        
+
+       <button class="prev">上一题</button>
+       <button class="next">下一题</button>
+       <button class="submit">提交</button> <br>
+       <button class="show_database">查看数据库</button> <br>
+       <button class="disappear_database">关闭数据库</button>
+        
+       <table style="display: none;">
+        <tr>
+            <th>ID</th>
+            <th>题目</th>
+            <th>选项</th>
+            <th>答案</th>
+         </tr>
+            <tr>
+               <td>0</td>
+               <td>起风了</td>
+               <td>A:1111 B:2222 C:3333 D:4444</td>
+               <td>2222</td>
+            </tr>
+          
+       </table> <br>
+
+       <button class="append" style="display: none;">添加</button>
+       
+       
+            <form action="" class="appended" style=" display: none;">
+                <span>题目</span><input type="text">
+                <p>选项</p>
+                <span>A</span><input type="text" style="margin-bottom: 20px;" > <br>
+                <span>B</span><input type="text" style="margin-bottom: 20px;"> <br>
+                <span>C</span><input type="text" style="margin-bottom: 20px;"> <br>
+                <span>D</span><input type="text" style="margin-bottom: 20px;"> <br>
+                <span>答案</span><input type="text" style="margin-bottom: 20px;"> <br>
+
+                <button class="sure">确认</button>
+                
+                
+            </form>
+            <button class="cancle" style="display: none;">取消</button>
+        
+    </div>
+
+
+
+
+    <script>
+        // 题目序号
+        let count = 0
+        //  用于切换题目
+        let i = 0
+    //    题目数
+        let j = 0
+        // 初始题目
+        const obj0 = {
+                question: '起风了',
+                a: '1111',
+                b: '2222',
+                c: '3333',
+                d: '4444',
+                ans: '2222'
+        }
+        // 题目通过对象储存在此
+        const arr = [obj0]
+
+        // 捕获html元素
+        const start = document.querySelector('.start')
+        const change = document.querySelector('.change')
+        const show_database = document.querySelector('.show_database')
+        const disappear_database = document.querySelector('.disappear_database')
+        const database = document.querySelector('table')
+        const append = document.querySelector('.append')
+        const appended = document.querySelector('.appended')
+        const sure = document.querySelector('.sure')
+        const cancle = document.querySelector('.cancle')
+        const text = document.querySelectorAll('form input')
+        const opts = document.querySelectorAll('.option span')
+        const prev = document.querySelector('.prev')
+        const next = document.querySelector('.next')
+        const num = document.querySelector('.num')
+        const question = document.querySelector('.question')
+
+        const big = document.querySelector('.big')
+        const submit = document.querySelector('.submit')
+       
+        
+        // 开始按钮
+        start.addEventListener('click', function () {
+            start.style.display = 'none'
+            change.style.display = 'block'
+        })
+        
+        // 显示数据库按钮
+        show_database.addEventListener('click', function () {
+            database.style.display = 'block'
+            append.style.display = 'block'
+        })
+
+        // 隐藏数据库按钮
+        disappear_database.addEventListener('click', function () {
+            database.style.display = 'none'
+            append.style.display = 'none'
+        })
+        
+        // 添加按钮
+        append.addEventListener('click', function () {
+            appended.style.display = 'block'
+             cancle.style.display = 'block'
+        })
+
+        // 添加题目
+        appended.addEventListener('submit', function (e) {
+            e.preventDefault()
+        //    将输入作为对象保存
+            const obj = {
+                question: text[0].value,
+                a: text[1].value,
+                b: text[2].value,
+                c: text[3].value,
+                d: text[4].value,
+                ans: text[5].value
+            }
+            // 验证是否输入完全
+            if (obj.question === '' || obj.a === '' || obj.b === '' || obj.c === '' || obj.d === '' || obj.ans === ''){
+                alert('未输入完全')
+            }else {
+                // 储存题目
+                arr.push(obj)
+                // 新题目的序号
+                count++
+                // 将新题目的信息加入数据库中
+                const n = document.createElement('tr')
+                n.innerHTML = 
+                `<tr>
+                <td>${count}</td>
+                <td>${obj.question}</td>
+                <td>${'A:' + obj.a + 'B:' + obj.b + 'C:' + obj.c + 'D:' + obj.d}</td>
+                <td>${obj.ans}</td>
+                 </tr> `
+                 appended.style.display = 'none'
+                 
+                 database.appendChild(n)
+                
+                // 将新题目加入网页
+
+                // 用于存放新题目的元素
+                const new_option = document.createElement('div')
+            //    新题目的四个选项
+                const a = document.createElement('input')
+                const b = document.createElement('input')
+                const c = document.createElement('input')
+                const d = document.createElement('input')
+                // 修改样式
+                a.type = 'radio'
+                b.type = 'radio'
+                c.type = 'radio'
+                d.type = 'radio'
+                // 给新题目赋值为最后判断对错作准备
+                a.value = `${obj.a}`
+                b.value = `${obj.b}`
+                c.value = `${obj.c}`
+                d.value = `${obj.d}`
+                // 让题目单选
+                a.name = `${j}`
+                b.name = `${j}`
+                c.name = `${j}`
+                d.name = `${j}`
+                // 记录题目数
+                j++
+                // 创建新题目的元素
+                const as = document.createElement('span')
+                as.innerHTML = 'A:' + obj.a
+                const bs = document.createElement('span')
+                bs.innerHTML = 'B:' + obj.b
+                const cs = document.createElement('span')
+                cs.innerHTML = 'C:' + obj.c
+                const ds = document.createElement('span')
+                ds.innerHTML = 'D:' + obj.d
+                const br1 = document.createElement('br')
+                const br2 = document.createElement('br')
+                const br3 = document.createElement('br')
+                const br4 = document.createElement('br')
+
+                // 将新题目的元素加入这个盒子
+                new_option.appendChild(a)
+                new_option.appendChild(as)
+                new_option.appendChild(br1)
+                new_option.appendChild(b)
+                new_option.appendChild(bs)
+                new_option.appendChild(br2)
+                new_option.appendChild(c)
+                new_option.appendChild(cs)
+                new_option.appendChild(br3)
+                new_option.appendChild(d)
+                new_option.appendChild(ds)
+                new_option.appendChild(br4)
+                //  再将这个盒子加入到网页中
+                big.appendChild(new_option)
+
+                
+                new_option.classList.add('option')
+                // 新题目默认隐藏，为切换题目作准备
+                 cancle.style.display = 'none'
+
+
+             
+            }
+        
+        })
+        // 下一道题
+        next.addEventListener('click', function () {
+            // 限制不溢出
+            if (i < arr.length - 1) {
+                i++
+                // 调用渲染函数
+                render()
+            }
+           
+        })
+        
+        prev.addEventListener('click', function () {
+            // 限制
+            if (i > 0) {
+                i--
+                render()
+            }
+            
+        })
+        // 渲染函数
+        function render() {
+            // 渲染题目的序号与题名
+            const option = document.querySelectorAll('.option')
+            num.innerHTML = i
+            question.innerHTML = arr[i].question
+            // 切换题目
+            document.querySelector('.active').classList.remove('active')
+            option[i].classList.add('active')
+        }
+        // 增加题目时的取消按钮
+        cancle.addEventListener('click', function () {
+            appended.style.display = 'none'
+            cancle.style.display = 'none'
+        })
+        // 初始化
+        render()
+
+        // 计算作对的题数
+        submit.addEventListener('click', function () {
+            while (true) {
+                const option = document.querySelectorAll('.option')
+                // 捕获以勾选的答案
+                const opt = document.querySelectorAll('input:checked')
+                // 表示答对的题数
+                let correct = 0
+                // 提示未答完，同时保证下面遍历答案的for循环不出错
+                if (opt.length < j+1) {
+                    alert('有题目未作答')
+                    break
+                }
+                // j是题目数
+                for (let i = 0; i <= j; i++) {
+                    
+                    // 判断对错并记录
+                        if (opt[i].value === arr[i].ans) {
+                            correct++
+                        }
+                    
+                }
+                alert(`答对了${correct}道题`)
+                break
+            }
+            
+        })
+       
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
