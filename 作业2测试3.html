@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四川工商职业技术学院</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+        .w{
+            max-width: 1498px;
+            margin: auto;
+        }
+        .backgrangg{
+            width: 100%;
+        }
+        body{
+            min-width: 1200px;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .head1 a{
+            color: white;
+        }
+        .top{
+            position: fixed;
+            height: 50px;
+            background-color: #bd3831;
+            z-index: 9999;
+        }
+        .head1{
+            height: 50px;
+            min-width: 1200px;
+            background-color: #bd3831;
+            display: flex;
+            justify-content: space-between;
+        }
+        .h1left{
+            float: left;
+        }
+         .h1right{
+            float: right;
+            display: flex;
+            justify-content: space-between;
+        }
+        .h1l-link,.h1l-tag{
+            display: inline-block;
+        }
+        .h1l-link div,.h1l-tag div,.h1right div{
+            display: inline-block;
+            margin-left: 10px;
+            color: white;
+            line-height: 50px;
+        }
+        .h1l-tag{
+            margin-left: 25px;
+        }
+        .h1right div{
+            margin-right: 20px;
+            line-height: 53px;
+            font-size: 20px;
+        }
+        .search{
+            position: relative;
+            top: 6px;
+            height: 40px;
+            padding-right: 30px;
+            border: 0;
+            border-bottom:1px solid white;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: #bd3831;
+        }
+        .h1right img{
+            position: relative;
+            top: 15px;
+            right: 35px;
+            width: 20px;
+            height: 20px;
+        }
+        .h2{
+            height: 96px;
+        }
+        .top2{
+            position: fixed;
+            top: 50px;;
+            height: 96px;
+            z-index: 9999;
+            background-color: white;
+        }
+        .head2 {
+            height: 96px;
+            width: 1498px;
+        }
+        .head2 img{
+            display: block;
+            position: relative;
+            top: 15px;
+            left: 2px;
+            width: 100%;
+        }
+        .xs{
+            float: left;
+            width: 354px;
+        }
+        #ul1{
+            float: right;
+            margin-top: 25px;
+            margin-right: 40px;
+        }
+        .btli{
+            display:inline-block;
+            position: relative;
+            margin-left: 42px;
+            line-height: 45px;
+            font-size: 20px;
+        }
+        #ul1 li>a{
+            display: block;
+        }
+        .droplist{
+            display: none;
+            width: 200%;
+            overflow: hidden;
+            color: white;
+        }
+        .btli:hover .droplist{
+            display: block;
+            position: absolute;
+            left: -50%;
+            top: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #bd3831;
+            z-index: 3;
+        }
+        #ul1 li .droplist{
+            color: white;
+            text-align: center;
+        }
+        .big{
+            display: flex;
+            position: relative;
+            
+        }
+        .big>img{
+            position: relative;
+            display: block;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .big ul{
+            position: absolute;
+            bottom: 10px;
+            left: 18.2%;
+            z-index: 2;
+            color: white;
+        }
+        .big ul li{
+            float: left;
+            margin-left: 30px;
+            font-size: 20px;
+        }
+        .tag{display: inline-block;
+            position: absolute;
+            bottom:190px;
+            right: 10px;
+            width: 190px;
+            height: 200px;
+        }
+        .tag1,.tag2,.tag3{
+            z-index: 2;
+            width: 183px;
+            height: 183px;
+            background-size: auto ;
+            background-image: url(img/tag\(1\).png);
+            background-repeat: no-repeat;
+        }
+       .tag1{
+        position: absolute;
+        
+       }
+       .tag2{
+        position: absolute;
+        top: 190px;
+       }
+       .tag3{
+        position: absolute;
+        top: 95px;
+        left: -90px;
+       }
+       .tag1:hover{
+        background-image: none;
+       }
+       .tag2:hover{
+        background-image: none;
+       }
+       .tag3:hover{
+        background-image: none;
+       }
+       #tag1p{
+        position: absolute;
+        top: 58px;
+        left: 71px;
+        width: 100%;
+        height: 100%;
+        color: white;
+       }
+       #tag2p{
+        position: absolute;
+        top: 60px;
+        left: 71px;
+        width: 30%;
+        height: 30%;
+        color: white;
+       }
+       #tag3p{
+        position: absolute;
+        top: 60px;
+        left: 67px;
+        width: 30%;
+        height: 20%;
+        color: white;
+       }
+       .text{
+        float: left;
+        overflow: hidden;
+        margin: auto;
+       }
+       .lastp{
+        width: 600px;
+        height: 400px;
+       }
+        .lastbox{
+            position: relative;
+            margin-top: 55px;
+            min-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .zuo{
+            position: relative;
+            float: left;
+            width: 600px;
+            overflow: hidden;
+        }
+        .gundong{
+            position: absolute;
+            top: 50px;
+            width: 3000px;
+            height: 400px;
+            display: flex;
+	        animation: run 20s  infinite;
+            overflow: hidden;
+        }
+        .text1{
+            position: relative;
+            top: 460px;
+            margin-top: 20px;
+            margin-left: 25px;
+            font-size: 18px;
+        }
+        .xuanfu{
+            position: absolute;
+            top: -10px;
+            width: 90px;
+            height: 150px;
+            background-color: #bd3831;
+        }
+        .rightyou{
+            float: right;
+        }
+        .yaowen{
+            font-size: 24px;
+            float: right;
+        }
+        .yaowen span {
+            display: inline-block;
+            padding-left: 30px;
+        }
+        span:hover{
+            color: #bd3831;
+        }
+        .lastone{
+            position: relative;
+            margin-top: 40px;
+            margin-right: 310px;
+            
+        }
+        .lastone li {
+            position: relative;
+            left: 30px;
+            margin-top: 1px;
+            font-weight: 600;
+            height: 3em;
+            line-height: 3em;
+            
+        }
+        .lastone a{
+            text-decoration: none;
+            color: black;
+        }
+        .li1:hover{
+            position: relative;
+            left: -5px;
+            background-color: #bd3831;
+            transition: all 0.7s;
+        }
+        .end{
+            float: right;
+            margin-top: 40px;
+            font-size: 26px;
+        }
+        .end:hover{
+            position: relative;
+            left: 40px;
+        }
+        .fix{
+           position: fixed;
+           bottom: 50%;
+           width: 50px;
+           height: 100px;
+           background-color: rgba(56, 41, 104, 0.5);
+           line-height: 100px;
+           color: white;
+           text-align: center;
+           z-index: 10;
+           
+        }
+
+        @keyframes run {
+	0%,10%{
+		transform: translateX(0);
+	}
+	20%,30%{
+		transform: translateX(-600px);
+	}
+	40%,50%{
+		transform: translateX(-1200px);
+	}
+	60%,70%{
+		transform: translateX(-1800px);
+	}
+	80%,90%{
+		transform: translateX(-2400px);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+    </style>
+</head>
+<body>
+    <!-- 头部的红盒子 -->
+    
+     <div class="top backgrangg">
+      <div class="head1 w ">
+       <div class="h1left">
+        <div class="h1l-link">
+            <div><a href="https://www.sctbc.net/kjrk/fk.htm" target="_blank">访客</a></div>
+            <div><a href="https://www.sctbc.net/kjrk/xs.htm" target="_blank">学生</a></div>
+            <div><a href="https://www.sctbc.net/kjrk/js.htm" target="_blank">教师</a></div>
+        </div>
+        <div class="h1l-tag">
+            <div><a href="https://zsjy.sctbc.edu.cn/zsxx/zxxx.htm" target="_blank">报考学校</a></div>
+            <div>/</div>
+            <div><a href="http://zcc.sctbc.net/list.jsp?urltype=tree.TreeTempUrl&wbtreeid=1034" target="_blank">招标公告</a></div>
+            <div>/</div>
+            <div><a href="http://gxlz.scedu.net/webuser/index.html#/Home" target="_blank">高校网络理政平台</a></div>
+            <div>/</div>
+            <div><a href="https://www.sctbc.net/zzjg1/glfwjg/jwbgs/lxwm.htm" target="_blank">办学突出问题投诉</a></div>
+        </div>
+       </div>
+       <div class="h1right">
+            <div><a href="https://www.sctbc.net/gjjs.htm" target="_blank">高级检索</a></div>
+            <input type="text" value="请输入关键词" class="search" style="outline:none ;">
+            <img src="img/search.png" alt="">
+       </div>
+      </div>
+     </div>
+     
+    <!-- 头部的白盒子 -->
+
+     <div class="top2 backgrangg">
+        <div class="head2 w">
+            <div class="xs"><a href="https://www.sctbc.net/index.htm" target="_blank"><img src="img/logo_on.png" alt=""></a></div>
+            <ul id="ul1">
+                <li class="btli"><a href="https://www.sctbc.net/index.htm" target="_blank" style=" color: rgba(51, 51, 51);">首页</a>
+                  
+                </li>
+
+                <li class="btli"><a href="https://www.sctbc.net/xygk/xyjj.htm" target="_blank" style=" color: rgba(51, 51, 51);" >学校概况</a>
+                    <ul class="droplist" >
+                        <li><a href="https://www.sctbc.net/xygk/xyjj.htm" target="_blank" style="color: white;">学院简介</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xxry.htm" target="_blank" style="color: white;">学院简介</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xxxx.htm" target="_blank" style="color: white;">学校校训</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xrld.htm" target="_blank" style="color: white;">现任领导</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xxjs.htm" target="_blank" style="color: white;">学校精神</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/jzjs.htm" target="_blank" style="color: white;">学校抗震救灾精神</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xxxf.htm" target="_blank" style="color: white;">学校校风</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xxjf.htm" target="_blank" style="color: white;">学校教风</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xxxf1.htm" target="_blank" style="color: white;">学校学风</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/zlwh.htm" target="_blank" style="color: white;">质量文化</a></li>
+                        <li><a href="https://www.sctbc.net/xygk/xyly.htm" target="_blank" style="color: white;">校园掠影</a></li>
+                    </ul>
+                </li>
+
+                <li class="btli"><a href="https://www.sctbc.net/zzjg1/glfwjg.htm" target="_blank" style=" color: rgba(51, 51, 51);">组织机构</a>
+                    <ul class="droplist">
+                        <li><a href="https://www.sctbc.net/zzjg1/glfwjg.htm" target="_blank" style="color: white;">管理服务机构</a></li>
+                        <li><a href="https://www.sctbc.net/zzjg1/jxjg.htm" target="_blank" style="color: white;">教学机构</a></li>
+                    </ul>
+                </li>
+
+                <li class="btli"><a href="https://www.sctbc.net/szdw/szdwgk.htm" target="_blank" style=" color: rgba(51, 51, 51);">师资队伍</a>
+                    <ul class="droplist">
+                        <li><a href="https://www.sctbc.net/szdw/szdwgk.htm" target="_blank" style="color: white;">师资简介</a></li>
+                        <li><a href="https://www.sctbc.net/szdw/yxjs.htm" target="_blank" style="color: white;">教师团队</a></li>
+                        <li><a href="https://www.sctbc.net/szdw/gcrc.htm" target="_blank" style="color: white;">高层人才</a></li>
+                        <li><a href="https://www.sctbc.net/szdw/tpzj.htm" target="_blank" style="color: white;">特聘专家</a></li>
+                        <li><a href="https://www.sctbc.net/szdw/yxjs1.htm" target="_blank" style="color: white;">优秀教师</a></li>
+                    </ul>
+                </li>
+
+                <li class="btli"><a href="https://www.sctbc.net/yxsz.htm" target="_blank" style=" color: rgba(51, 51, 51);">院系设置</a></li>
+
+                <li class="btli"><a href="https://www.sctbc.net/zsjy1.htm" target="_blank" style=" color: rgba(51, 51, 51);">招生就业</a>
+                    <ul class="droplist">
+                        <li><a href="https://zsjy.sctbc.edu.cn/" target="_blank" style="color: white;">招生网</a></li>
+                        <li><a href="http://sxh.sctbc.edu.cn/" target="_blank" style="color: white;">就业网</a></li>
+                    </ul>
+                </li>
+
+                <li class="btli"><a href="https://www.sctbc.net/kygl/kyxm.htm" target="_blank"style=" color: rgba(51, 51, 51);">科研管理</a>
+                    <ul class="droplist">
+                        <li><a href="https://www.sctbc.net/kygl/kyxm.htm" target="_blank" style="color: white;">科研项目</a></li>
+                        <li><a href="https://www.sctbc.net/kygl/lwfb.htm" target="_blank" style="color: white;">论文发表</a></li>
+                        <li><a href="https://kjc.sctbc.edu.cn/" target="_blank" style="color: white;" >科研成果</a></li>
+                        <li><a href="https://www.sctbc.net/kygl/shfw.htm" target="_blank" >社会服务</a></li>
+                        <li><a href="https://www.sctbc.net/kygl/jszx.htm" target="_blank" style="color: white;">技术咨询</a></li>
+                        <li><a href="https://www.sctbc.net/kygl/kpjd.htm" target="_blank" style="color: white;">科普基地</a></li>
+                    </ul>
+                </li>
+
+                <li class="btli"><a href="https://www.sctbc.net/zzjg1/glfwjg/dwjl/cjdt.htm" target="_blank" style=" color: rgba(51, 51, 51);">合作交流</a></li>
+
+                <li class="btli"><a href="https://www.sctbc.net/kjdh/ggfw.htm" target="_blank" style=" color: rgba(51, 51, 51);">公共服务</a>
+                    <ul class="droplist">
+                        <li><a href="https://portal.sctbc.edu.cn/" target="_blank" style="color: white;">校园服务大厅</a></li>
+                        <li><a href="http://oa.sctbc.net/seeyon/index.jsp" target="_blank" style="color: white;">OA办公系统</a></li>
+                        <li><a href="https://jw.sctbc.edu.cn/xtgl/login_slogin.html" target="_blank" style="color: white;">教务系统</a></li>
+                        <li><a href="http://kygl.sctbc.net/" target="_blank" style="color: white;">科研管理系统</a></li>
+                        <li><a href="https://www.sctbc.net/kjdh/ggfw.htm" target="_blank" style="color: white;">更多</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+     </div>
+
+    
+     <!-- 图片的盒子 -->
+      <div class="big">
+        <img src="img/xiaoqing222.jpg" alt="">
+        <ul num-list>
+            <li>01</li>
+            <li>02</li>
+            <li>03</li>
+            <li>04</li>
+            <li>05</li>
+            <li>06</li>
+            <li>07</li>
+        </ul>
+        
+        
+            <div class="tag">
+                <div class="tag1">
+                    <div id="tag1p">
+                        <img src="img/b-tag2.png" alt="" >
+                        <a href="https://www.sctbc.net/index.htm#kstd" style="color: white;"><p>快速通道</p></a>
+                    </div>
+                  
+                </div>
+
+                <div class="tag2">
+                    <div id="tag2p">
+                        <img src="img/b-tag1.png" alt="" >
+                        <a href="https://www.sctbc.net/zzjg1/glfwjg/tsqbg/zyjs.htm" target="_blank" style="color: white;"><p>图书馆</p></a>
+                 
+                    </div>
+                  
+                </div>
+
+                <div class="tag3">
+                    <div id="tag3p">
+                        <img src="img/b-tag3.png" alt="">
+                        <a href="" style="color: white;"><p>校园VR</p></a>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+     <!-- 最后的盒子 -->
+      <div class="w lastbox">
+          <div class="zuo">
+            <div class="gundong">
+                <img src="img/E1114823797382763BB10ED445D_F64BB20F_10E12.jpg" alt="" class="lastp">
+                <img src="img/4C736038A299990AA2D13C45104_94CBC396_1C06A.jpg" alt="" class="lastp">
+                <img src="img/65E3BFC1E047F1DDE4AA6BE57D1_8959F4DC_4D61E.png" alt="" class="lastp">
+                <img src="img/688261EEDA97B37523449857744_99A1736B_64DDB.png" alt="" class="lastp">
+                <img src="img/233538B024613864BFC690E9260_6122D1D1_3DC95.jpg" alt="" class="lastp">
+            </div>
+            
+            <div class="text1"><p>我校青年教师荣膺第七届全国茶业职业技能大赛铜奖</p>
+                <span><img src="img/tm.png" alt="">  2024-11-10 </span>
+            </div>
+
+            <div class="xuanfu">
+                <div style="position: absolute;top: 60px;left: 18px; font-size: 24px; color: white;">
+                    news
+                </div>
+               
+            </div>
+           
+          </div>
+          <div class="rightyou">
+            <div class="yaowen">
+                <span>学校要闻</span>
+                <span>|</span>
+                <span>综合新闻</span>
+
+            </div >
+            <ul class="lastone"> 
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18842.htm" target="_blank">我校在2024年“中银杯”四川省职业院校技能大赛英语赛项中获佳绩</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18834.htm" target="_blank">学校隆重召开第一次妇女代表大会</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18830.htm" target="_blank">党纪学习教育常态化——学校党员干部赴德阳孝源里开展廉洁教育</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18844.htm" target="_blank">学校工作队赴丹巴调研定点帮扶工作</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18829.htm" target="_blank">我校微课获评2024年四川省“能者为师”特色课程</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18827.htm" target="_blank">学校召开2025年专业备案研讨会</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1061/18815.htm" target="_blank">我校入选2024年成都市技能大师工作室公示名单</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1062/18835.htm" target="_blank">我校入选四川省2025年度高校学生心理健康教育指导典型案例</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1062/18835.htm" target="_blank">学校举行2024年“说教育”活动</a></li>
+                <li class="li1"><a href="https://www.sctbc.net/info/1062/18835.htm" target="_blank">学校顺利举行2025届毕业生冬季双选会</a></li>
+            </ul>
+            <div class="end">查看更多</div>
+          </div>
+
+
+      </div>
+
+      <div class="fix">
+            工商
+      </div>
+     
+</body>
+</html>
